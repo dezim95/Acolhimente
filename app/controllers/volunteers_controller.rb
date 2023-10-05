@@ -1,2 +1,3 @@
 class VolunteersController < ApplicationController
+  
 end
