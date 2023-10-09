@@ -1,0 +1,16 @@
+<div class="mt-5">
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.collection_check_boxes :role_ids, Role.all, :id, :name,
+          required: false,
+          input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-actions mt-3">
+      <%= f.button :submit, class: 'btn-primary' %>
+    </div>
+  <% end %>
+</div>
