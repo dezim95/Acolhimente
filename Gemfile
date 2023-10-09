@@ -76,3 +76,5 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+gem 'rolify', '~> 6.0', '>= 6.0.1'
