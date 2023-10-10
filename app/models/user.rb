@@ -8,6 +8,4 @@ class User < ApplicationRecord
   def assign_default_role
     add_role(:default) if roles.blank?
   end
-
-  
 end
