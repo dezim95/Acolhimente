@@ -78,3 +78,6 @@ group :test do
 end
 
 gem 'rolify', '~> 6.0', '>= 6.0.1'
+
+gem 'country_select', '~> 8.0', '>= 8.0.3'
+

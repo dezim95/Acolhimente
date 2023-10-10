@@ -4,17 +4,20 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :name, required: true, input_html: { autocomplete: "name" } %>
+    <%= f.input :age, required: true, input_html: { autocomplete: "age" } %>
+    <%= f.input :phone, required: true, input_html: { autocomplete: "tel" } %>
+    <%= f.input :city, required: true, input_html: { autocomplete: "address-level2" } %>
+    <%= f.input :state, required: true, input_html: { autocomplete: "address-level1" } %>
+    <%= f.input :country, as: :country_select, priority_countries: ['BR'] %>
+    <%= f.input :address, required: true, input_html: { autocomplete: "street-address" } %>
+    <%= f.input :instagram, input_html: { autocomplete: "url" } %>
+    <%= f.input :profession %>
+    <%= f.input :professional_registration %>
+    <%= f.input :specialty %>
+    <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
   </div>
 
   <div class="form-actions">
