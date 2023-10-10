@@ -1,0 +1,6 @@
+<h1>USERS</h1>
+<% @users.each do |user|%>
+  <p><%= user.email %></p>
+  <%= user.roles.pluck(:name) %> <br>
+  <%= link_to 'Edit Roles', edit_user_path(user), class: 'btn btn-outline-dark'%>
+<% end %>
