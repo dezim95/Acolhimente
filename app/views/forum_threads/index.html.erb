@@ -1,0 +1,10 @@
+<h1>Forum Threads</h1>
+
+<% @forum_threads.each do |thread| %>
+  <div class="thread">
+    <h2><%= link_to thread.subject, forum_thread_path(thread) %></h2>
+    <p>Started by: <%= thread.user.name %></p>
+  </div>
+<% end %>
+
+<%= link_to 'New Thread', new_forum_thread_path %>

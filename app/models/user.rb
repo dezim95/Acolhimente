@@ -5,6 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :forum_threads
+  has_many :forum_posts
+
   def assign_default_role
     add_role(:default) if roles.blank?
   end
