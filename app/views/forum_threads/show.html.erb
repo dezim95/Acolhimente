@@ -1,0 +1,9 @@
+<h1><%= @forum_thread.subject %></h1>
+
+<% @forum_thread.forum_posts.each do |post| %>
+  <div class="post">
+    <h2><%= post.user.name %></h2>
+    <p><%= post.body %></p>
+  </div>
+<% end %>
+
