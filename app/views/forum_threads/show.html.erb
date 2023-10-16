@@ -6,20 +6,3 @@
     <p><%= post.body %></p>
   </div>
 <% end %>
-
-<%= form_for [@forum_thread, Comment.new] do |f| %>
-  <div class="form-group">
-    <%= f.text_area :body, placeholder: "Add a comment", rows: 10, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<% @forum_thread.comments.each do |comment| %>
-  <div class="comment">
-    <h2><%= comment.user.name %></h2>
-    <p><%= comment.body %></p>
-  </div>
-<% end %>
