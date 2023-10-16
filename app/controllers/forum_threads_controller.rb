@@ -8,6 +8,7 @@ class ForumThreadsController < ApplicationController
 
   def show
     @forum_thread = ForumThread.find(params[:id])
+    @forum_post = ForumPost.new
   end
 
   def new
@@ -32,6 +33,6 @@ class ForumThreadsController < ApplicationController
   end
 
   def forum_thread_params
-    params.require(:forum_thread).permit(:subject, forum_posts_attributes: [:body])
+    params.require(:forum_thread).permit(:subject, forum_posts_attributes: [:body], forum_posts: [:body])
   end
 end

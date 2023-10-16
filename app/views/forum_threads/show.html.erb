@@ -1,8 +1,16 @@
 <h1><%= @forum_thread.subject %></h1>
 
 <% @forum_thread.forum_posts.each do |post| %>
-  <div class="post">
-    <h2><%= post.user.name %></h2>
+  <div>
     <p><%= post.body %></p>
+    <p>Postado por <%= post.user.email %> </p>
   </div>
+<% end %>
+
+<h2>Responder</h2>
+
+<%= form_for [@forum_thread, ForumPost.new] do |f| %>
+  <%= f.label :body, "Resposta" %><br>
+  <%= f.text_area :body %><br>
+  <%= f.submit "Postar Resposta" %>
 <% end %>
