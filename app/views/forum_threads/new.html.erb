@@ -2,7 +2,7 @@
   <div class="form-group">
     <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
   </div>
-  
+
   <%= f.fields_for :forum_posts do |p| %>
     <div class="form-group">
       <%= p.text_area :body, placeholder: "Add a comment", rows: 10, class: "form-control" %>
@@ -13,3 +13,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+

@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :forum_threads
   has_many :forum_posts
-
+  has_many :comments
   def assign_default_role
     add_role(:default) if roles.blank?
   end
