@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :users
   resources :forum_threads, only: [:new, :create, :index, :show] do
     resources :comments, only: [:create]
+    resources :forum_posts, only: [:create]
   end
-  resources :forum_posts, only: [:create]
 end
