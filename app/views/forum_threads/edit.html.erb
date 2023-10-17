@@ -1,5 +1,5 @@
 <h1>Edit Thread</h1>
-<%= form_for @forum_thread, method: :patch do |f| %>
+<%= form_for @forum_thread, method: :patch, data: { turbo: false } do |f| %>
   <div class="form-group">
     <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
   </div>
