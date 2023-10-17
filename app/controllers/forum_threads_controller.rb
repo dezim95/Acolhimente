@@ -37,7 +37,7 @@ class ForumThreadsController < ApplicationController
     if request.patch? && params[:commit] == "Update Forum thread"
       if @forum_thread.update(forum_thread_params)
         respond_to do |format|
-          format.turbo_stream
+          format.turbo_stream # Atualiza a parte da página que exibe o tópico
           format.html { redirect_to @forum_thread, notice: 'Thread was successfully updated.' }
         end
       else
@@ -45,6 +45,7 @@ class ForumThreadsController < ApplicationController
       end
     end
   end
+
 
   def destroy
     authorize @forum_thread # verifica se o usuário tem permissão para deletar o tópico
@@ -59,6 +60,7 @@ class ForumThreadsController < ApplicationController
   end
 
   def forum_thread_params
-    params.require(:forum_thread).permit(:subject, forum_posts_attributes: [:body], forum_posts: [:body])
+    params.require(:forum_thread).permit(:subject, forum_posts_attributes: [:body, :id])
   end
+
 end
