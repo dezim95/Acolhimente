@@ -7,7 +7,9 @@
   <% @forum_threads.each do |thread| %>
     <div class="thread">
       <h2><%= link_to thread.subject, forum_thread_path(thread) %></h2>
-      <p>Started by: <%= thread.user.name %></p>
+      <p>Started by: <%= thread.user.email %></p>
+      <%= link_to 'Edit', edit_forum_thread_path(thread), class: "btn btn-primary" %>
+      <%= link_to "Delete", forum_thread_path(thread), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
     </div>
   <% end %>
 </div>
