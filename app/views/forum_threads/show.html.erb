@@ -1,7 +1,7 @@
 <h1><%= @forum_thread.subject %></h1>
 
-<% @forum_thread.forum_posts.each do |post| %>
-  <div>
+<% @forum_thread.forum_posts.each_with_index do |post, index| %>
+  <div class="<%= index == 0 ? 'first-post' : 'normal-post' %>">
     <p><%= post.body %></p>
     <p>Postado por <%= post.user.email %> </p>
   </div>
