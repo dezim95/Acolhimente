@@ -81,3 +81,4 @@ gem 'rolify', '~> 6.0', '>= 6.0.1'
 
 gem 'country_select', '~> 8.0', '>= 8.0.3'
 
+gem 'pundit', '~> 2.3', '>= 2.3.1'

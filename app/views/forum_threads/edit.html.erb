@@ -1,3 +1,17 @@
 <h1>Edit Thread</h1>
-<%= render 'form', locals: { forum_thread: @forum_thread } %>
+<%= form_for @forum_thread, method: :patch do |f| %>
+  <div class="form-group">
+    <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
+  </div>
+
+  <%= f.fields_for :forum_posts do |p| %>
+    <div class="form-group">
+      <%= p.text_area :body, placeholder: "Add a comment", rows: 10, class: "form-control" %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.submit "Update Forum thread", name: "commit" %>
+  </div>
+<% end %>
 <%= link_to 'Back', forum_threads_path %>
