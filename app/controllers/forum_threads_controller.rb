@@ -26,6 +26,25 @@ class ForumThreadsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @forum_thread # verifica se o usuário tem permissão para editar o tópico
+    @forum_thread.forum_posts.build if @forum_thread.forum_posts.empty? # cria um novo post vazio se o tópico não tiver nenhum
+    if request.patch? # verifica se o usuário enviou o formulário de edição
+      if @forum_thread.update(forum_thread_params) # tenta atualizar o tópico e os posts com os parâmetros recebidos
+        redirect_to @forum_thread, notice: 'Thread was successfully updated.' # redireciona para a página do tópico com uma mensagem de sucesso
+      else
+        flash.alert = 'Thread could not be updated.' # define uma mensagem de alerta se houver algum erro de validação
+        render :edit # renderiza a página de edição novamente
+      end
+    end
+  end
+
+  def delete
+    authorize @forum_thread # verifica se o usuário tem permissão para deletar o tópico
+    @forum_thread.destroy # remove o tópico e os posts associados do banco de dados
+    redirect_to forum_threads_path, notice: 'Thread was successfully deleted.' # redireciona para a página de índice dos tópicos com uma mensagem de sucesso
+  end
+
   private
 
   def set_forum_thread
