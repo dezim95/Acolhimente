@@ -39,7 +39,7 @@ class ForumThreadsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     authorize @forum_thread # verifica se o usuário tem permissão para deletar o tópico
     @forum_thread.destroy # remove o tópico e os posts associados do banco de dados
     redirect_to forum_threads_path, notice: 'Thread was successfully deleted.' # redireciona para a página de índice dos tópicos com uma mensagem de sucesso
