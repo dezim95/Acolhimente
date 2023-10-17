@@ -29,12 +29,19 @@ class ForumThreadsController < ApplicationController
   def edit
     authorize @forum_thread # verifica se o usuário tem permissão para editar o tópico
     @forum_thread.forum_posts.build if @forum_thread.forum_posts.empty? # cria um novo post vazio se o tópico não tiver nenhum
-    if request.patch? # verifica se o usuário enviou o formulário de edição
-      if @forum_thread.update(forum_thread_params) # tenta atualizar o tópico e os posts com os parâmetros recebidos
-        redirect_to @forum_thread, notice: 'Thread was successfully updated.' # redireciona para a página do tópico com uma mensagem de sucesso
+  end
+
+  def update
+    @forum_thread = ForumThread.find(params[:id])
+
+    if request.patch? && params[:commit] == "Update Forum thread"
+      if @forum_thread.update(forum_thread_params)
+        respond_to do |format|
+          format.turbo_stream
+          format.html { redirect_to @forum_thread, notice: 'Thread was successfully updated.' }
+        end
       else
-        flash.alert = 'Thread could not be updated.' # define uma mensagem de alerta se houver algum erro de validação
-        render :edit # renderiza a página de edição novamente
+        render :edit
       end
     end
   end
