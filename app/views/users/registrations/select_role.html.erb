@@ -1,0 +1,7 @@
+<!-- app/views/users/registrations/select_role.html.erb -->
+<h2>Select Your Role</h2>
+
+<%= form_tag select_role_path, method: :post do %>
+  <%= select_tag :role_id, options_for_select(Role.where(name: ['user', 'volunteer']).pluck(:name, :id)) %>
+  <%= submit_tag "Select Role" %>
+<% end %>
