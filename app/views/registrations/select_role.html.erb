@@ -1,0 +1,7 @@
+<h2>Select Your Role</h2>
+
+<%= form_tag registration_path(resource_name), method: :post do %>
+  <%= hidden_field_tag :chose_volunteer, value: session[:chose_volunteer] %>
+  <%= select_tag :role_id, options_for_select(Role.where(name: ['user', 'volunteer']).pluck(:name, :id)) %>
+  <%= submit_tag "Select Role" %>
+<% end %>

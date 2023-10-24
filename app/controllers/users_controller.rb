@@ -13,6 +13,29 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def select_role
+    chose_volunteer = params[:chose_volunteer] == 'true'
+    session[:chose_volunteer] = chose_volunteer
+
+    if chose_volunteer
+      redirect_to new_volunteer_registration_path
+    else
+      redirect_to new_user_registration_path
+    end
+  end
+
+
+  def create
+    super do |resource|
+      if params[:user_role] == 'volunteer'
+        resource.add_role(:volunteer)
+      else
+        resource.add_role(:user)
+      end
+    end
+  end
+
+
   private
 
   def set_user

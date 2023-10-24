@@ -12,9 +12,14 @@
     <%= f.input :country, as: :country_select, priority_countries: ['BR'] %>
     <%= f.input :address, required: true, input_html: { autocomplete: "street-address" } %>
     <%= f.input :instagram, input_html: { autocomplete: "url" } %>
-    <%= f.input :profession %>
-    <%= f.input :professional_registration %>
-    <%= f.input :specialty %>
+    <% if params[:chose_volunteer] == 'true' %>
+      <%= f.input :profession, input_html: { autocomplete: "profession" } %>
+      <%= f.input :professional_registration, input_html: { autocomplete: "professional registration" } %>
+      <%= f.input :specialty, input_html: { autocomplete: "specialty" } %>
+      <%= hidden_field_tag :user_role, 'volunteer' %>
+    <% else %>
+      <%= hidden_field_tag :user_role, 'user' %>
+    <% end %>
     <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
