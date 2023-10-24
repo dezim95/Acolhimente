@@ -4,7 +4,9 @@ class RegistrationsController < Devise::RegistrationsController
   def select_role
     if params[:role_id].present?
       if params[:role_id] == Role.find_by(name: 'user').id
+
         redirect_to new_user_registration_path
+
       else
         redirect_to new_volunteer_registration_path
       end
@@ -13,7 +15,6 @@ class RegistrationsController < Devise::RegistrationsController
       # You can render an error message or take appropriate action
     end
   end
-
 
   protected
 
