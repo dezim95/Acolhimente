@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'select_role', to: 'users/registrations#select_role'
   end
+  get '/users/registrations/user', to: 'users/registrations#user'
+  get '/users/registrations/volunteer', to: 'users/registrations#volunteer'
   # Defines the root path route ("/")
   # root "articles#index"
   resources :users
