@@ -1,7 +1,16 @@
-<h2>Select Your Role</h2>
-
-<%= form_tag select_role_path, method: :post do %>
-  <%= hidden_field_tag :chose_volunteer, value: session[:chose_volunteer] %>
-  <%= select_tag :role_id, options_for_select(Role.where(name: ['user', 'volunteer']).pluck(:name, :id)) %>
-  <%= submit_tag "Select Role" %>
-<% end %>
+<!-- app/views/users/registrations/select_role.html.erb -->
+<form data-controller="role">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="role" value="user" id="userRole" data-role-target="user" data-action="role#redirect">
+    <label class="form-check-label" for="userRole">
+      User
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="role" value="volunteer" id="volunteerRole" data-role-target="volunteer" data-action="role#redirect">
+    <label class="form-check-label" for="volunteerRole">
+      Volunteer
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { registrations: "registrations" }
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # config/routes.rb
   devise_scope :user do
-    get 'select_role', to: 'registrations#select_role'
+    get 'select_role', to: 'users/registrations#select_role'
   end
-  #get 'select_role', to: 'users/registrations#select_role'
+  get '/users/registrations/user', to: 'users/registrations#user'
+  get '/users/registrations/volunteer', to: 'users/registrations#volunteer'
   # Defines the root path route ("/")
   # root "articles#index"
   resources :users

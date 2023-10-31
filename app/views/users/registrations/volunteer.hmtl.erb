@@ -15,14 +15,9 @@
     <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
-    <% if session[:chose_volunteer] %>
-      <%= f.input :profession %>
-      <%= f.input :professional_registration %>
-      <%= f.input :specialty %>
-      <%= f.hidden_field :roles, value: 'volunteer' %>
-    <% else %>
-      <%= f.hidden_field :roles, value: 'user' %>
-    <% end %>
+    <%= f.input :profession %>
+    <%= f.input :professional_registration %>
+    <%= f.input :specialty %>
   </div>
 
   <div class="form-actions">
