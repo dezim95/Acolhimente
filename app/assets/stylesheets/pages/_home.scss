@@ -1,1 +1,51 @@
-// Specific CSS for your home-page
+.sos-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px; /* Largura e altura para torná-lo grande */
+  height: 150px; /* Largura e altura para torná-lo grande */
+  background-color: #D2001A;
+  border-radius: 50%;
+  color: #efefef;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  position: relative; /* Adicione esta linha */
+
+  &:hover {
+    background-color: #E27D89;
+    color: #fff;
+  }
+
+  /* Código para o círculo médio */
+  &::before {
+    content: "";
+    position: absolute;
+    top: -15px; /* Aumente a posição */
+    left: -15px; /* Aumente a posição */
+    width: calc(100% + 30px); /* Aumente o tamanho */
+    height: calc(100% + 30px); /* Aumente o tamanho */
+    border-radius: 50%;
+    background-color: #DA3D50;
+    box-sizing: border-box; /* Inclua a borda no tamanho */
+    z-index: -1; /* Coloque atrás do círculo interno */
+    transform: scale(0.9); /* Reduza um pouco o tamanho */
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Código para o círculo externo */
+  &::after {
+    content: "";
+    position: absolute;
+    top: -30px; /* Aumente a posição */
+    left: -30px; /* Aumente a posição */
+    width: calc(100% + 60px); /* Aumente o tamanho */
+    height: calc(100% + 60px); /* Aumente o tamanho */
+    border-radius: 50%;
+    background-color: #E27D89;
+    box-sizing: border-box; /* Inclua a borda no tamanho */
+    z-index: -2; /* Coloque atrás dos outros círculos */
+    transform: scale(0.8); /* Reduza um pouco o tamanho */
+    transition: all 0.3s ease-in-out;
+  }
+}

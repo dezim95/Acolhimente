@@ -1,4 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
- <%= link_to "User", new_user_session_path, class: "btn btn-primary" %>
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="text-center">
+    <h1>Acolhimente</h1>
+    <p>Que bom que você chegou!
+      Nós estamos aqui, prontos
+      para te escutar e apoiar
+      neste momento difícil.
+    </p>
+    <div class="d-flex justify-content-center">
+      <%= link_to "SOS", pages_emergency_form_path, class: "sos-btn" %>
+    </div>
+    <p>Sente que está muito pesado? Vamos conversar, estamos aqui por você!</p>
+  </div>
+</div>
