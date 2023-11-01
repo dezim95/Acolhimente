@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #DE6070;
+  background: #DF3155;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,4 +16,24 @@
   width: 30px;
   height: 30px;
   border: 0;
+}
+
+.collapse-menu {
+  background-color: #DE6070;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar {
+  padding: 0;
+}
+
+.nav-item:hover {
+}
+
+.nav-text {
+  color: white;
 }
