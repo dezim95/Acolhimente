@@ -7,15 +7,13 @@
   background-color: #D2001A;
   border-radius: 50%;
   color: #efefef;
-  font-size: 1.5rem;
+  font-size: 42px;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
   position: relative; /* Adicione esta linha */
+  animation: pulse 1s infinite, glow 1s infinite; /* Adicione esta linha */
+  font-weight: bold;
 
-  &:hover {
-    background-color: #E27D89;
-    color: #fff;
-  }
 
   /* Código para o círculo médio */
   &::before {
@@ -26,7 +24,7 @@
     width: calc(100% + 30px); /* Aumente o tamanho */
     height: calc(100% + 30px); /* Aumente o tamanho */
     border-radius: 50%;
-    background-color: #DA3D50;
+    background-color: #EC1F25;
     box-sizing: border-box; /* Inclua a borda no tamanho */
     z-index: -1; /* Coloque atrás do círculo interno */
     transform: scale(0.9); /* Reduza um pouco o tamanho */
@@ -48,4 +46,40 @@
     transform: scale(0.8); /* Reduza um pouco o tamanho */
     transition: all 0.3s ease-in-out;
   }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #D2001A, 0 0 10px #D2001A, 0 0 15px #D2001A, 0 0 20px #D2001A;
+  }
+
+  50% {
+    box-shadow: 0 0 10px #D2001A, 0 0 20px #D2001A, 0 0 30px #D2001A, 0 0 40px #D2001A;
+  }
+
+  100% {
+    box-shadow: 0 0 5px #D2001A, 0 0 10px #D2001A, 0 0 15px #D2001A, 0 0 20px #D2001A;
+}
+}
+
+
+// footer-home
+
+.footer-image {
+  object-fit: cover;
+  width: 100%;
+  height: 270px;
 }
