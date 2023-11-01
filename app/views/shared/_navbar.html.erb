@@ -1,24 +1,24 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand" href="<%= root_path %>">
+      <img src="https://i.postimg.cc/B8ChJ612/Screenshot-2023-11-01-102008.png" />
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <img class="hamburger" src="https://i.postimg.cc/ct8wLxJs/Screenshot-2023-11-01-104315.png" alt="Toggle navigation" />
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
+          <li class="nav-item active text-end">
             <%= link_to "Forum", forum_threads_path, class: "nav-link" %>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item active text-end">
            <%= link_to 'Home', root_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item text-end">
             <a class="nav-link" href="#">Messages</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown text-end">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
