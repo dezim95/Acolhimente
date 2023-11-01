@@ -1,30 +1,28 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <a class="navbar-brand" href="<%= root_path %>">
+    <a class="navbar-brand mx-2" href="<%= root_path %>">
       <img src="https://i.postimg.cc/B8ChJ612/Screenshot-2023-11-01-102008.png" />
     </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <img class="hamburger" src="https://i.postimg.cc/ct8wLxJs/Screenshot-2023-11-01-104315.png" alt="Toggle navigation" />
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-controller="nav">
+      <img class="hamburger" src="https://i.postimg.cc/ct8wLxJs/Screenshot-2023-11-01-104315.png" alt="Toggle navigation" data-action="click->nav#toggleCollapsedMenuColor">
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
       <ul class="navbar-nav me-auto">
-          <li class="nav-item active text-end">
-            <%= link_to "Forum", forum_threads_path, class: "nav-link" %>
+          <li class="nav-item active mx-2">
+            <%= link_to "Forum", forum_threads_path, class: "nav-link nav-text" %>
           </li>
-          <li class="nav-item active text-end">
-           <%= link_to 'Home', root_path, class: 'nav-link' %>
+          <li class="nav-item active mx-2">
+           <%= link_to 'Home', root_path, class: 'nav-link nav-text' %>
           </li>
-          <li class="nav-item text-end">
-            <a class="nav-link" href="#">Messages</a>
+          <li class="nav-item mx-2">
+            <a class="nav-link nav-text" href="#"><strong></strong>Messages</a>
           </li>
-          <li class="nav-item dropdown text-end">
+          <li class="nav-item dropdown mx-2 d-none d-md-block">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
               <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              <%= link_to "Forum", forum_threads_path, class: "dropdown-item" %>
               <%= link_to "User", new_user_session_path, class: "dropdown-item" %>
             </div>
           </li>
@@ -32,3 +30,14 @@
     </div>
   </div>
 </div>
+
+<script>
+  // Function to toggle the custom class on the collapsed menu
+  function toggleCollapsedMenuColor() {
+    const collapsedMenu = document.querySelector('.navbar-collapse');
+    collapsedMenu.classList.toggle('collapse-menu');
+  }
+
+  // Add a click event listener to the hamburger button
+  document.querySelector('.navbar-toggler').addEventListener('click', toggleCollapsedMenuColor);
+</script>
