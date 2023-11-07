@@ -1,0 +1,23 @@
+.card-emergency{
+  width: 18rem;
+  background-color: #FFF193;
+  border-radius: 8px;
+}
+
+.send-emergency-button{
+  background-color: #DE6070;
+  padding: 4px;
+  border-radius: 8px;
+  width: 75%;
+  &:hover{
+    opacity: 90%;
+  }
+}
+
+.text-button-color-emergency{
+  color: white;
+  font-weight: bold;
+  &:hover{
+    color: #FFF193;
+  }
+}
