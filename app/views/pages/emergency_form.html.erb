@@ -1,10 +1,27 @@
-<div class="container d-flex align-items-center justify-content-center">
-  <div class="text-center">
-  <br>
-    <p>Você não está sozinho.
-        Nós estamos aqui por você.
-        Por favor, aguarde um momento enquanto buscamos alguém para te ajudar.
-    </p>
-    <div class="c-loader container"></div>
+<div class="container my-5 h-100 w-100 d-flex justify-content-center align-items-center">
+  <%= form_with(url: 'emergency_form', local: true, html: { class: 'text-center' }) do |form| %>
+  <p>Por favor, preencha os campos abaixo para darmos continuidade ao seu atendimento.</p>
+  <div class="form-group">
+    <%= form.label :idade, class: 'h4' %>
+    <%= form.number_field :idade, class: 'form-control rounded-pill', min: 0, max:99 %>
   </div>
+  <br>
+  <div class="form-group">
+    <p class='h4'>Como deseja conversar?</p>
+    <div class="form-check">
+      <%= form.radio_button :opcao, 'texto', class: 'form-check-input' %>
+      <%= form.label :opcao_audio, 'Texto', class: 'form-check-label' %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :opcao, 'audio', class: 'form-check-input' %>
+      <%= form.label :opcao_audio, 'Áudio', class: 'form-check-label' %>
+    </div>
+    <div class="form-check">
+      <%= form.radio_button :opcao, 'video_chamada', class: 'form-check-input' %>
+      <%= form.label :opcao_video_chamada, 'Vídeo Chamada', class: 'form-check-label' %>
+    </div>
+    <br>
+  <%= form.submit 'Enviar', class: 'btn btn-outline-danger rounded-pill' %>
+  </div>
+<% end %>
 </div>
